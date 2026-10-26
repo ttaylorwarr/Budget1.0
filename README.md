@@ -18,3 +18,10 @@ Runs on Cloudflare Pages (static `public/` + Pages Functions in `functions/`) wi
 
 ## Local dev
 Create `.dev.vars` (git-ignored) with `OWNER_EMAIL=...` and `OWNER_PASSWORD=...`, then `npm run dev`.
+
+## Email reminders (daily)
+Pages can't run schedules, so `reminder-worker/` is a small separate Worker with a daily cron (14:00 UTC).
+It emails each person (owner and members) a list of their own unpaid bills due within 3 days or overdue, once per day.
+1. Onboard your domain: `npx wrangler email sending enable yourdomain.com`
+2. Edit `reminder-worker/wrangler.toml`: same `database_id`, `FROM_EMAIL` (an address on that domain) and `SITE_URL`.
+3. `npm run deploy:reminders`

@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS posts (
   repeat INTEGER NOT NULL DEFAULT 0,
   paid INTEGER NOT NULL DEFAULT 0,
   paid_at TEXT,
+  last_reminded TEXT,          -- YYYY-MM-DD of the last reminder email
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS posts_user_month ON posts(user_id, month);
