@@ -10,7 +10,7 @@ crons = ["0 14 * * *"]
 binding = "DB"
 database_name = "budget"
 # Same id as ../wrangler.toml
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "286669c1-42ca-48b6-9cdb-1ef3f8569849"
 
 [[send_email]]
 name = "EMAIL"
