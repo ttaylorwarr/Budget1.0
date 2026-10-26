@@ -1,0 +1,21 @@
+name = "budget-reminders"
+main = "index.js"
+compatibility_date = "2025-01-01"
+
+# Runs every day at 14:00 UTC.
+[triggers]
+crons = ["0 14 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "budget"
+# Same id as ../wrangler.toml
+database_id = "00000000-0000-0000-0000-000000000000"
+
+[[send_email]]
+name = "EMAIL"
+
+[vars]
+# Must be an address on a domain onboarded to Cloudflare Email Sending.
+FROM_EMAIL = "reminders@example.com"
+SITE_URL = "https://budget.pages.dev"
