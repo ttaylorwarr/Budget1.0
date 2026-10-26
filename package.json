@@ -1,0 +1,12 @@
+{
+  "name": "budget",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler d1 execute budget --local --file=schema.sql && wrangler pages dev public",
+    "db:init": "wrangler d1 execute budget --remote --file=schema.sql",
+    "deploy": "wrangler pages deploy public"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
